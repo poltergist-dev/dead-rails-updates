@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dead Rails</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .light-theme {
+      background-color: #f5f5f5;
+      color: #222;
+    }
+
+    .dark-theme {
+      background-color: #111;
+      color: #eee;
+    }
+
+    header, footer {
+      padding: 1rem;
+      text-align: center;
+      background-color: #333;
+      color: #fff;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .lang-switch, .theme-switch {
+      margin: 1rem;
+      text-align: center;
+    }
+
+    .news {
+      margin-top: 2rem;
+    }
+
+    .news-item {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border-left: 4px solid #888;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="dark-theme">
+  <header>
+    <h1 id="title">Dead Rails</h1>
+  </header>
+
+  <div class="lang-switch">
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('ru')">Русский</button>
+  </div>
+
+  <div class="theme-switch">
+    <button onclick="toggleTheme()">🎨 Сменить тему</button>
+  </div>
+
+  <main>
+    <section class="news">
+      <h2 id="news-title">Updates</h2>
+      <div class="news-item">
+        <strong>v1.2 – March 2025</strong>
+        <p id="news1">Added new ghost encounter near the rear wagon.</p>
+      </div>
+      <div class="news-item">
+        <strong>v1.1 – February 2025</strong>
+        <p id="news2">Improved lighting effects and fixed train collision bug.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Dead Rails Team</p>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        title: "Dead Rails",
+        "news-title": "Updates",
+        news1: "Added new ghost encounter near the rear wagon.",
+        news2: "Improved lighting effects and fixed train collision bug."
+      },
+      ru: {
+        title: "Мёртвые Рельсы",
+        "news-title": "Обновления",
+        news1: "Добавлено новое столкновение с призраком у хвоста поезда.",
+        news2: "Улучшено освещение и исправлена ошибка столкновения поезда."
+      }
+    };
+
+    function setLanguage(lang) {
+      for (const key in translations[lang]) {
+        document.getElementById(key).textContent = translations[lang][key];
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark-theme");
+      document.body.classList.toggle("light-theme");
+    }
+  </script>
+</body>
+</html>
